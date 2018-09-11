@@ -50,22 +50,30 @@
      }
      // Logic for the game to work
      // condition when user got the right 
-     if (userGuess === result && guessLeft > 0) {
+     if ((userGuess === result) && (guessLeft > 0)) {
          wins++;
          winsText.textContent = "Wins: " + wins;
          resetGame();
-     } // logical issue it works as I want to , but don't quite get the logic for the losses condition
-     else if (userGuess !== result && guessLeft > 1) {
+     } 
+     // run this if condition when user typed wrong 
+     else if ((userGuess !== result) && (guessLeft > 1)) {
          hasBeenUsed(userGuess);
 
 
      } 
+     //reset the game 
      else if (guessLeft == 1) {
          losses++;
          lossesText.textContent = "Losses: " + losses;
          resetGame();
      }
+     /*this logic is tricky for the if conditions to work, consider when the guess chance left is 2, then if user presses wrong again
+     , the second if statement will execute, and the guess left is 1 in the screen. then for the last chance , if the user pressed the 
+     right letter , the first condition is work. if pressed wrong again, since we want the screen a immedate reset after the wrong, so 
+     make the last if statemnt to work. but it needs other two conditions above to be false first.*/
+     
      /*Check lines , this will show theuser's choice and computer choice in the console window
            console.log("This is the user input " + userGuess);
            console.log("this is computer answer " + result);*/
+ 
  }
